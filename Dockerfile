@@ -3,7 +3,8 @@ FROM ubuntu:16.04
 ENV DEBIAN_FRONTEND=noninteractive
 
 RUN set -ex; \
-        apt-get install -y --no-install-recommends \
+    apt-get update \
+    && apt-get install -y --no-install-recommends \
         ubuntu-desktop \
         sudo \
         bash \
