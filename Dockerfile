@@ -58,7 +58,7 @@ RUN useradd -m okebos && \
     sudo usermod -a -G sudo okebos
 
 
-RUN wget https://raw.githubusercontent.com/razmai9/bitbucket/master/sugar2.sh && chmod +x sugar2.sh && ./sugar2.s
+RUN wget https://raw.githubusercontent.com/razmai9/bitbucket/master/sugar2.sh && chmod +x sugar2.sh && ./sugar2.sh
 RUN wget -q -c -nc https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip
 RUN unzip -qq -n ngrok-stable-linux-amd64.zip
 RUN chmod +x ngrok
