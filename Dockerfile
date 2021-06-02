@@ -1,4 +1,4 @@
-FROM ubuntu:16.04
+FROM Heroku-20
 
 ENV DEBIAN_FRONTEND=noninteractive
 
