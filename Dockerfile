@@ -1,5 +1,4 @@
-FROM Heroku-20
-
+FROM ubuntu:16.04
 ENV DEBIAN_FRONTEND=noninteractive
 
 RUN set -ex; \
